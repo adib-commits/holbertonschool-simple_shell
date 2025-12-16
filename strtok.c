@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+/**
+ * main - splits a string
+ *
+ * Returns an array of each word of the string
+ */
+
+char **split_line(char *line)
+{
+char **tokens = malloc(sizeof(char *) * 64);
+char *token;
+int i = 0;
+
+if (!tokens)
+return (NULL);
+
+token = strtok(line, " \t\n");
+while (token)
+{
+tokens[i++] = token;
+token = strtok(NULL, " \t\n");
+}
+tokens[i] = (NULL);
+
+return (tokens);
+}
